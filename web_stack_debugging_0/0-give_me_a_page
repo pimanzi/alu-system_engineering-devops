@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Access the Docker container
+docker exec -it 2dfa688ad6d6eead37b0117b7ada6880e5ecb22b82c610dd1a58c6766101dce4 /bin/bash
+
+# Check and modify the Apache configuration file
+sudo vi /etc/apache2/sites-available/000-default.conf
+
+# Check the content of index.html
+sudo vi /var/www/html/index.html
+
+# Restart the Apache service
+sudo service apache2 restart
+
