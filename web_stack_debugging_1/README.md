@@ -1,0 +1,1 @@
+This directory contains codes I used to debug the ubuntu container provided to ALU students who are in the first year term 3. We were requested to make nginx run on port 80.However the bug was that nginx was set to run on port 8080 while there was another processes running on that port. Happy Coding
