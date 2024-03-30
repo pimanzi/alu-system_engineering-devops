@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Stop nginx if it's already running
+
+service nginx stop
+
+# Change ownership of necessary directories to nginx user
+chown -R nginx:nginx /var/log/nginx /var/lib/nginx /var/www/html
+
+# Modify nginx.conf to run as nginx user
+sed -i 's/user .*;/user nginx;/g' /etc/nginx/nginx.conf
+
+# Modify default site configuration to listen on port 8080
+sed -i 's/listen 80;/listen 8080;/g' /etc/nginx/sites-available/default
+
+# Restart nginx
+service nginx start
+
+# Check if nginx is running as nginx user
+ps auxff | grep ngin[x]
+
+# Check if nginx is listening on port 8080
+nc -z 0 8080 ; echo $?
+
